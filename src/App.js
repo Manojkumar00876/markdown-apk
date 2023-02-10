@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+import RegisterForm from "./components/RegisterForm";
+import { BrowserRouter , Route , Routes } from "react-router-dom";
+import LoginForm from "./components/LoginForm";
+import ReactMarkDown from "./components/ReactMarkDown" 
+import { CreatePost } from "./components/CreatePost";
+import { BlogEditor } from "./components/BlogEditor";
+import Secure from "./components/Secure";
 function App() {
+   
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+      <Routes>
+        <Route path="/Register" element={<RegisterForm/>}/>
+        <Route path="/MarkDown" element={<ReactMarkDown/>}/>
+        <Route path="/Login" element={<LoginForm/>}/>
+        <Route path="/BlogEditor" element={<Secure><BlogEditor/></Secure>}/>
+        <Route path="/CreatePost" element={<Secure><CreatePost/></Secure>}/>
+      </Routes>
+      </BrowserRouter>
     </div>
   );
 }
-
 export default App;
